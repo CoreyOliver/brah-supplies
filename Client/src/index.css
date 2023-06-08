@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-      @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide 
+      @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide box-border
     }
   
     h1,h2,h3,h4,h5,h6 {
@@ -12,7 +12,7 @@
     }
   
     h1 {
-      @apply text-4xl  sm:text-5xl md:text-6xl
+      @apply text-xl  sm:text-xl md:text-2xl
     }
   
     h2 {
@@ -21,6 +21,7 @@
   
     li {
       @apply cursor-pointer
+       p-4
     }
   
     button {

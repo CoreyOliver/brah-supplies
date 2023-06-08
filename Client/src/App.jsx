@@ -1,10 +1,13 @@
+import Navbar from './components/Navbar'
+import Supply from './components/Supply'
 import './index.css'
 
 function App() {
 
   return (
-    <div className='flex items-center justify center'>
-      <h1 className='flex items-center'>Hello Errryone</h1>
+    <div>
+      <Navbar />
+      <Supply />
     </div>
   )
 }
