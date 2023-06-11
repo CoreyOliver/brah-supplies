@@ -16,13 +16,18 @@ app.use(logger('dev'))
 
 //file connect
 
-const connectDB = require('./config/database')
+const connectDB = require('./config/main.database')
+const mainRoutes = require('./routes/main.route')
 
 
 
 //db init
 
 connectDB()
+
+//route set up
+
+app.use('/', mainRoutes)
 
 //listening
 
