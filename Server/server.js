@@ -1,6 +1,7 @@
 //server set up
 
 const express = require('express')
+var cors = require('cors')
 const app = express()
 const mongoose = require('mongoose')
 const logger = require('morgan')
@@ -32,5 +33,5 @@ app.use('/', mainRoutes)
 //listening
 
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log(`Server is running on ${process.env.PORT}, you better catch it!`)
 })  
