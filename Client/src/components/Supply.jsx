@@ -1,18 +1,48 @@
-import React from 'react'
+import React from "react";
+import SupplyLine from "./SupplyLine";
 
-//need to figure out how to put it in a rwo
 const Supply = () => {
   return (
-    <div className='pt-20'>
-      <ul className='grid-flow-row grid-cols-5 text-sm bg-slate-200 '>
-        <li>Description:</li>
-        <li>Item Number:</li>
-        <li>Vendor:</li>
-        <li>Active:</li>
-        <li>Quantity:</li>
-      </ul>
+    <div className="pt-20 flex justify-center items-center">
+      <table className="table w-full mx-8 mt-8">
+        <tr className="">
+          <th scope="col" className=""></th>
+          <th scope="col">Item Number</th>
+          <th scope="col" className="hidden sm:table-cell">Vendor</th>
+          <th scope="col" className="hidden sm:table-cell">Active</th>
+          <th scope="col">Quantity</th>
+        </tr>
+        <SupplyLine 
+        SKU={'Pregis Film'}
+        vendor={'TripleP'}
+        quantity={0}
+        active={'Y'}
+        type={'CTN'}
+        />
+        <SupplyLine 
+        SKU={'White Padded Mailers'}
+        vendor={'TripleP'}
+        quantity={0}
+        active={'Y'}
+        type={'CTN'}
+        />
+        <SupplyLine 
+        SKU={'J-16'}
+        vendor={'TripleP'}
+        quantity={0}
+        active={'Y'}
+        type={'PLT'}
+        />
+        <SupplyLine 
+        SKU={'2.5"x2.25" direct thermal'}
+        vendor={'RPC'}
+        quantity={0}
+        active={'Y'}
+        type={'RLS'}
+        />
+      </table>
     </div>
-  )
-}
+  );
+};
 
-export default Supply
+export default Supply;
