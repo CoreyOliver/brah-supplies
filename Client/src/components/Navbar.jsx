@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
@@ -10,15 +11,23 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-full h-20 shadow-xl z-[100]">
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
+      <div className="flex justify-evenly items-center w-full h-full ">
         <div>
           <ul className="hidden md:flex">
-            <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
-            <li className="ml-10 text-sm uppercase hover:border-b">Supplies</li>
-            <li className="ml-10 text-sm uppercase hover:border-b">
+            <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
+              <NavLink to={"/"}>Supply List</NavLink>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
+            <NavLink to={"add"}>Add Supply</NavLink>
+              
+            </li>
+            {/* <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
+              Edit Supply
+            </li> */}
+            <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
               Order History
             </li>
-            <li className="ml-10 text-sm uppercase hover:border-b">
+            <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
               Draft Order
             </li>
           </ul>
@@ -56,10 +65,13 @@ const Navbar = () => {
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
               <li onClick={() => setNav(false)} className="py-4 text-sm">
-                Home
+                Supply List
               </li>
               <li onClick={() => setNav(false)} className="py-4 text-sm">
-                Supply List
+                Add Supply
+              </li>
+              <li onClick={() => setNav(false)} className="py-4 text-sm">
+                Edit Supply
               </li>
               <li onClick={() => setNav(false)} className="py-4 text-sm">
                 Order History
