@@ -11,3 +11,9 @@ To do
 [] access to update pricing and vendor for supplies but also keep historic data
 []
 []
+
+
+//6-15
+moved the loader function within component
+need to map through the loaded data to render in supply list
+item type isn't pulling properly

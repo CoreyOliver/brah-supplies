@@ -2,7 +2,12 @@ const SupplyItem = require("../models/SupplyItem.model");
 
 module.exports = {
   getSupplies: async (req, res) => {
-    res.json({ answer: "supplies" });
+    try {
+        const data = await SupplyItem.find()
+        res.json(data)
+    }catch(err) {
+        console.log(err)
+    }
   },
 
   addSupply: async (req, res) => {

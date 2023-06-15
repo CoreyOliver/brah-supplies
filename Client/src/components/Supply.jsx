@@ -1,7 +1,24 @@
-import React from "react";
+import { useLoaderData } from "react-router-dom";
 import SupplyLine from "./SupplyLine";
+import { useState, useEffect } from "react";
 
-const Supply = () => {
+
+export  async function loader() {
+  const res = await fetch('http://localhost:3000')
+  const supplies = await res.json()
+  return supplies
+}
+
+export function Supply () {
+
+  const supplies = useLoaderData()
+  console.log(supplies)
+
+
+
+  
+
+
   return (
     <div className="pt-20 flex justify-center items-center">
       <table className="table w-full mx-8 mt-8">
@@ -24,14 +41,14 @@ const Supply = () => {
             <th scope="col">Quantity</th>
           </tr>
           <SupplyLine
-            SKU={"Pregis Film"}
-            vendor={"TripleP"}
-            quantity={0}
-            active={true}
-            type={"CTN"}
-            price={0.25}
+            SKU={supplies[0].SKU}
+            vendor={supplies[0].vendor}
+            quantity={supplies[0].quantity}
+            active={supplies[0].active}
+            type={supplies[0].type}
+            price={supplies[0].price}
           />
-          <SupplyLine
+          {/* <SupplyLine
             SKU={"White Padded Mailers"}
             vendor={"TripleP"}
             quantity={0}
@@ -54,7 +71,7 @@ const Supply = () => {
             active={false}
             type={"RLS"}
             price={0.25}
-          />
+          /> */}
         </tbody>
       </table>
     </div>

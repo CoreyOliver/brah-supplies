@@ -6,15 +6,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //components & pages
 import App from "./App.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import Supply from './components/Supply.jsx';
+import {Supply, loader as getSupplies } from './components/Supply.jsx';
 import AddSupply from "./components/AddSupply.jsx";
 
 //styling
 import "./index.css";
 
 //actions
-import { action as addSupplyAction } from "./functions/functions.js"
-
+import { action as addSupply } from "./functions/addSupplyAction.js"
 
 const router = createBrowserRouter([
   {
@@ -24,12 +23,13 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Supply />
+        loader: getSupplies,
+        element: <Supply />,
       },
       {
         path: 'add',
         element: <AddSupply />,
-        action: addSupplyAction
+        action: addSupply
       }
     ]
   },
