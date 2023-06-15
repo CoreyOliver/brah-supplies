@@ -16,12 +16,15 @@ const SupplySchema = new mongoose.Schema({
     type: Boolean
   },
   unitCount: {
-    type: String,
+    type: Number,
     required: true
   },
   price: {
     type: Number,
     required:true
+  },
+  added: {
+    type: Date,
   }
 
 })

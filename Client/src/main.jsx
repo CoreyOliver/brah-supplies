@@ -13,6 +13,8 @@ import AddSupply from "./components/AddSupply.jsx";
 import "./index.css";
 
 //actions
+import { action as addSupplyAction } from "./functions/functions.js"
+
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,7 @@ const router = createBrowserRouter([
       {
         path: 'add',
         element: <AddSupply />,
+        action: addSupplyAction
       }
     ]
   },

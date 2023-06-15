@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 
 
-//need to connect the form to an api request. routes through express or connect router dom to action?
 const AddSupply = () => {
   const [formData, setFormData] = useState({
     SKU: "",
     vendor: "",
     price: 0,
     type: "",
+    unitCount: 0,
     active: true,
   });
 
@@ -31,27 +31,28 @@ const AddSupply = () => {
 
   const clearForm = () => {
     setFormData(() => {
-      return { SKU: "", vendor: "", price: 0, type: "", active: true };
+      return { SKU: "", vendor: "", price: 0, type: "", unitCount: 0, active: true };
     });
-    alert('Form Cleared')
   };
-  
 
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  //use to see form updates
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
 
   return (
     <div className="pt-40 flex justify-around items-center m-auto">
       <Form
-        method="post"
-        id="contact-form"
+        method="POST"
+        id="supplies-form"
         className="flex flex-col w-full items-center"
+        onSubmit={clearForm}
       >
         <div className="p-8 border-s-slate-400">
           <span className="p-4 text-left w-[90%]">Item:</span>
           <input
             placeholder="SKU"
+            autoComplete="off"
             type="text"
             name="SKU"
             value={formData.SKU}
@@ -79,18 +80,32 @@ const AddSupply = () => {
             name="price"
             placeholder="Price"
             className="text-center rounded-md shadow-xl shadow-gray-300"
-            value={formData.price}
+            value={formData.price || ""}
             onChange={(e) => handleChange(e)}
           />
         </label>
         <label className="p-8">
           <span className="p-4 text-left w-[90%]">Container Type</span>
           <input
-            type="text"
+            type="list"
+            list="containers"
             name="type"
             placeholder="Container Type"
+            autoComplete="off"
             className="text-center rounded-md shadow-xl shadow-gray-300"
             value={formData.type}
+            onChange={(e) => handleChange(e)}
+          />
+        </label>
+
+        <label className="p-8">
+          <span className="p-4 text-left w-[90%]">Units/container</span>
+          <input
+            type="number"
+            name="unitCount"
+            placeholder="Units/container"
+            className="text-center rounded-md shadow-xl shadow-gray-300"
+            value={formData.unitCount || ""}
             onChange={(e) => handleChange(e)}
           />
         </label>
@@ -123,6 +138,13 @@ const AddSupply = () => {
         <option value="TripleP"></option>
         <option value="RPC"></option>
         <option value="SI Printing"></option>
+      </datalist>
+
+      <datalist id="containers">
+        <option value="Roll"></option>
+        <option value="Carton"></option>
+        <option value="Pallet"></option>
+        <option value="EA"></option>
       </datalist>
     </div>
   );
