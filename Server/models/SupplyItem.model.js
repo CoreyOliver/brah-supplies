@@ -23,6 +23,10 @@ const SupplySchema = new mongoose.Schema({
     type: Number,
     required:true
   },
+  type: {
+    type: String,
+    required: true
+  },
   added: {
     type: Date,
   }

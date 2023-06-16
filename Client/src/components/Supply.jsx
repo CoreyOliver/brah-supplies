@@ -2,22 +2,78 @@ import { useLoaderData } from "react-router-dom";
 import SupplyLine from "./SupplyLine";
 import { useState, useEffect } from "react";
 
-
-export  async function loader() {
-  const res = await fetch('http://localhost:3000')
-  const supplies = await res.json()
-  return supplies
+export async function loader() {
+  const res = await fetch("http://localhost:3000");
+  const supplies = await res.json();
+  return supplies;
 }
 
-export function Supply () {
+export function Supply() {
+  const supplies = useLoaderData();
+  const [data, setData] = useState(supplies);
 
-  const supplies = useLoaderData()
-  console.log(supplies)
+  const addQty = async (id, newQty) => {
+    try {
+      const res = await fetch(`http://localhost:3000/count/${id}/${newQty}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json()
+      console.log(data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
+  const handleClickUp = (id) => {
+    let newCount;
+    const newState = data.map((supply) => {
+      if (supply._id === id) {
+        const newQty = supply.quantity + 1;
+        newCount = newQty;
+        return { ...supply, quantity: newQty };
+      }
+      return supply;
+    });
 
+    addQty(id, newCount);
+    setData(newState);
+  };
 
-  
+  const handleClickDown = (id) => {
+    let newCount;
+    const newState = data.map((supply) => {
+      if (supply._id === id) {
+        const newQty = supply.quantity - 1;
+        newCount = newQty;
+        return { ...supply, quantity: newQty };
+      }
+      return supply;
+    });
 
+    setData(newState);
+    addQty(id, newCount);
+  };
+
+  const supplyList = data.map((supply) => (
+    <SupplyLine
+      key={supply._id}
+      SKU={supply.SKU}
+      vendor={supply.vendor}
+      quantity={supply.quantity}
+      active={supply.active}
+      type={supply.type}
+      price={supply.price}
+      handleClickUp={handleClickUp}
+      handleClickDown={handleClickDown}
+      id={supply._id}
+    />
+  ));
 
   return (
     <div className="pt-20 flex justify-center items-center">
@@ -40,42 +96,12 @@ export function Supply () {
             </th>
             <th scope="col">Quantity</th>
           </tr>
-          <SupplyLine
-            SKU={supplies[0].SKU}
-            vendor={supplies[0].vendor}
-            quantity={supplies[0].quantity}
-            active={supplies[0].active}
-            type={supplies[0].type}
-            price={supplies[0].price}
-          />
-          {/* <SupplyLine
-            SKU={"White Padded Mailers"}
-            vendor={"TripleP"}
-            quantity={0}
-            active={true}
-            type={"CTN"}
-            price={0.25}
-          />
-          <SupplyLine
-            SKU={"J-16"}
-            vendor={"TripleP"}
-            quantity={0}
-            active={true}
-            type={"PLT"}
-            price={0.25}
-          />
-          <SupplyLine
-            SKU={'2.5"x2.25" direct thermal'}
-            vendor={"RPC"}
-            quantity={0}
-            active={false}
-            type={"RLS"}
-            price={0.25}
-          /> */}
+
+          {supplyList}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
 export default Supply;

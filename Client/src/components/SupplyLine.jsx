@@ -1,15 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GrAdd, GrSubtract } from "react-icons/gr";
 
-const SupplyLine = ({ SKU, vendor, quantity, active, type, price }) => {
-  const { qty, setQty } = useState({quantity});
+const SupplyLine = ({ SKU, vendor, quantity, active, type, price, handleClickUp, handleClickDown, id }) => {
 
-  const handleClickUp = () => {
-    setQty((prevState) => {
-      return prevState + 1
-    })
-    console.log(qty)
-  }
+
   return (
     <>
       <tr className="">
@@ -23,13 +17,13 @@ const SupplyLine = ({ SKU, vendor, quantity, active, type, price }) => {
           {`${ quantity } ${type}(s)`}
           <span
             className="p-2 rounded-xl border-2 cursor-pointer"
-            // onClick={handleClickUp}
+            onClick={()=> handleClickUp(id)}
           >
             <GrAdd />
           </span>
           <span
             className="p-2 rounded-xl border-2 cursor-pointer"
-            // onClick={handleClickDown}
+            onClick={() => handleClickDown(id)}
           >
             <GrSubtract />
           </span>

@@ -18,11 +18,10 @@ const Navbar = () => {
               <NavLink to={"/"}>Supply List</NavLink>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
-            <NavLink to={"add"}>Add Supply</NavLink>
-              
+              <NavLink to={"add"}>Add Supply</NavLink>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
-              Edit Supply
+              <NavLink to={"edit"}>Edit Supply</NavLink>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
               Order History

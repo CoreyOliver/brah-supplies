@@ -8,12 +8,16 @@ import App from "./App.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import {Supply, loader as getSupplies } from './components/Supply.jsx';
 import AddSupply from "./components/AddSupply.jsx";
+import { EditSupply 
+  // , loader as getOneSupply
+} from "./components/EditSupply.jsx";
 
 //styling
 import "./index.css";
 
 //actions
 import { action as addSupply } from "./functions/addSupplyAction.js"
+
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,11 @@ const router = createBrowserRouter([
         path: 'add',
         element: <AddSupply />,
         action: addSupply
+      },
+      {
+        path: 'edit',
+        // loader: getOneSupply,
+        element: <EditSupply />,
       }
     ]
   },
