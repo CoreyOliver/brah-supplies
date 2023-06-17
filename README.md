@@ -17,3 +17,13 @@ To do
 moved the loader function within component
 need to map through the loaded data to render in supply list
 item type isn't pulling properly
+
+//6-16
+added edit functions and adjusted request to handle changes
+puts increase and decrease quantity as needed
+need to add "edit supply" page. 
+issues with exporting from file
+was able to work out loader and map function properly. used improper brackets....
+
+//6-20
+
