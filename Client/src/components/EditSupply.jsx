@@ -1,28 +1,27 @@
 import { useState, useEffect } from "react";
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, useLoaderData, useNavigate } from "react-router-dom";
 
-
-
-// export async function loader() {
-//   const res= await fetch(`http://localhost:3000/edit/${id}`)
-//   const data = await res.json()
-//   console.log(data)
-//   return data
-// }
-
+export async function loader({ params }) {
+  const res = await fetch(`http://localhost:3000/edit/${params.id}`);
+  const singleSupply = await res.json();
+  // console.log(singleSupply)
+  return singleSupply;
+}
 
 const EditSupply = () => {
-  const singleSupply = useLoaderData()
-  console.log(singleSupply)
+  const singleSupply = useLoaderData();
+  const navigate = useNavigate()
+  // console.log(singleSupply);
 
   const [editFormData, setEditFormData] = useState({
-    SKU: "",
-    vendor: "",
-    price: 0,
-    type: "",
-    unitCount: 0,
-    quantity: 0,
-    active: true,
+    id: singleSupply._id,
+    SKU: singleSupply.SKU,
+    vendor: singleSupply.vendor,
+    price: singleSupply.price,
+    type: singleSupply.type,
+    unitCount: singleSupply.unitCount,
+    quantity: singleSupply.quantity,
+    active: singleSupply.active,
   });
 
   const handleChange = (e) => {
@@ -44,11 +43,19 @@ const EditSupply = () => {
 
   const clearForm = () => {
     setEditFormData(() => {
-      return { SKU: "", vendor: "", price: 0, type: "", unitCount: 0, active: true };
+      return {
+        SKU: "",
+        vendor: "",
+        price: 0,
+        type: "",
+        unitCount: 0,
+        active: true,
+      };
     });
   };
 
-  //use to see form updates
+
+
   // useEffect(() => {
   //   console.log(editFormData);
   // }, [editFormData]);
@@ -56,11 +63,22 @@ const EditSupply = () => {
   return (
     <div className="pt-40 flex justify-around items-center m-auto">
       <Form
-        method="POST"
+        method="PUT"
         id="supplies-form"
         className="flex flex-col w-full items-center"
-        onSubmit={clearForm}
+        // onSubmit={handleSubmit}
       >
+        <div className="p-8 border-s-slate-400">
+          <span className="p-4 text-left w-[90%]">Item ID</span>
+          <input
+            placeholder="id"
+            readOnly
+            type="text"
+            name="id"
+            value={editFormData.id}
+            className="text-center rounded-md shadow-xl shadow-gray-300 bg-slate-500 text-xs text-white"
+          />
+        </div>
         <div className="p-8 border-s-slate-400">
           <span className="p-4 text-left w-[90%]">Item:</span>
           <input
@@ -149,12 +167,6 @@ const EditSupply = () => {
           <button className="m-4 p-4 bg-slate-400 rounded-xl w-full hover:scale-110 hover:ease-in ">
             Submit
           </button>
-          <p
-            className="m-4 p-4 bg-slate-400 rounded-xl w-full text-center hover:scale-110 hover:ease-in "
-            onClick={() => clearForm()}
-          >
-            Clear
-          </p>
         </div>
       </Form>
 

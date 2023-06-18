@@ -81,17 +81,18 @@ export function Supply() {
         <tbody>
           <tr className="">
             <th scope="col" className=""></th>
+            <th scope="col" >Edit</th>
             <th scope="col">Item Number</th>
             <th scope="col" className="hidden sm:table-cell">
               Vendor
             </th>
-            <th scope="col" className="hidden sm:table-cell">
+            <th scope="col" className="hidden md:table-cell">
               Price/EA
             </th>
             <th scope="col" className="hidden sm:table-cell">
               Price/container
             </th>
-            <th scope="col" className="hidden sm:table-cell">
+            <th scope="col" className="hidden md:table-cell">
               Active
             </th>
             <th scope="col">Quantity</th>

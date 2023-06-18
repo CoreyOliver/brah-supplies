@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Form } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 
 
 const AddSupply = () => {
@@ -28,12 +28,18 @@ const AddSupply = () => {
       };
     });
   };
+  const handleSubmit = () => {
+    clearForm()
+    navigate(-1)
+  }
 
   const clearForm = () => {
     setFormData(() => {
       return { SKU: "", vendor: "", price: 0, type: "", unitCount: 0, active: true };
     });
   };
+
+  const navigate = useNavigate()
 
   //use to see form updates
   // useEffect(() => {
@@ -46,7 +52,7 @@ const AddSupply = () => {
         method="POST"
         id="supplies-form"
         className="flex flex-col w-full items-center"
-        onSubmit={clearForm}
+        onSubmit={handleSubmit}
       >
         <div className="p-8 border-s-slate-400">
           <span className="p-4 text-left w-[90%]">Item:</span>

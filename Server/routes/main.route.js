@@ -6,6 +6,9 @@ router.get('/', mainController.getSupplies)
 router.get('/edit/:id', mainController.getOneSupply)
 
 router.post('/add', mainController.addSupply)
+
+
 router.put('/count/:id/:newCount', mainController.changeCount)
+router.put('/editSupply/:id', mainController.editSupply)
 
 module.exports = router
