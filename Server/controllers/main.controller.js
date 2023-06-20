@@ -68,9 +68,9 @@ module.exports = {
 
         });
       // console.log(supToUp, req.body);
-      res.json("Updated!");
+      res.json(res.body);
     } catch (error) {
-      console.log(error);
+      res.json(error)
     }
   },
 };

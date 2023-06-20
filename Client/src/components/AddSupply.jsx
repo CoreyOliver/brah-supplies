@@ -30,7 +30,7 @@ const AddSupply = () => {
   };
   const handleSubmit = () => {
     clearForm()
-    navigate(-1)
+    // navigate(-1)
   }
 
   const clearForm = () => {
@@ -39,7 +39,7 @@ const AddSupply = () => {
     });
   };
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   //use to see form updates
   // useEffect(() => {

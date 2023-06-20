@@ -10,7 +10,7 @@ To do
 [] historical data to watch supply flow
 [] access to update pricing and vendor for supplies but also keep historic data
 [] update onSubmit to reroute to root
-[]
+[] remove negative
 
 changelogs
 //6-15
