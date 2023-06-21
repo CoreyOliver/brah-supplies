@@ -4,6 +4,7 @@ const mainController = require('../controllers/main.controller')
 
 router.get('/', mainController.getSupplies)
 router.get('/edit/:id', mainController.getOneSupply)
+router.get('/orders', mainController.getSuppliesForOrder)
 
 router.post('/add', mainController.addSupply)
 

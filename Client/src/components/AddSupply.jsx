@@ -144,6 +144,7 @@ const AddSupply = () => {
         <option value="TripleP"></option>
         <option value="RPC"></option>
         <option value="SI Printing"></option>
+        <option value="UPS"></option>
       </datalist>
 
       <datalist id="containers">

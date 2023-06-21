@@ -1,4 +1,3 @@
-import {redirect} from 'react-router-dom'
 
 export async function action({ request }) {
     const formData = await request.formData()
@@ -11,7 +10,9 @@ export async function action({ request }) {
         },
         body: JSON.stringify(supplies)
     })
-    const body = await response.json()
+
+    const data = await response
     
-    return { body }
+    return { data }
 }
+

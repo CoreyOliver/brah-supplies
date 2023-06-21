@@ -8,7 +8,7 @@ export async function loader() {
   return supplies;
 }
 
-export function Supply() {
+export function OrderList() {
   const supplies = useLoaderData();
   const [data, setData] = useState(supplies);
 
@@ -26,9 +26,13 @@ export function Supply() {
       console.log(error);
     }
   };
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  // useEffect(()=>{
+  //   console.log(supplies)
+  // }, [])
 
   const handleClickUp = (id) => {
     let newCount;
@@ -60,20 +64,20 @@ export function Supply() {
     addQty(id, newCount);
   };
 
-  const supplyList = data.map((supply) => (
-    <SupplyLine
-      key={supply._id}
-      SKU={supply.SKU}
-      vendor={supply.vendor}
-      quantity={supply.quantity}
-      active={supply.active}
-      type={supply.type}
-      price={supply.price}
-      handleClickUp={handleClickUp}
-      handleClickDown={handleClickDown}
-      id={supply._id}
-    />
-  ));
+  // const supplyList = data.map((supply) => (
+  //   <SupplyLine
+  //     key={supply._id}
+  //     SKU={supply.SKU}
+  //     vendor={supply.vendor}
+  //     quantity={supply.quantity}
+  //     active={supply.active}
+  //     type={supply.type}
+  //     price={supply.price}
+  //     handleClickUp={handleClickUp}
+  //     handleClickDown={handleClickDown}
+  //     id={supply._id}
+  //   />
+  // ));
 
   return (
     <div className="pt-20 flex justify-center items-center">
@@ -98,11 +102,11 @@ export function Supply() {
             <th scope="col">Quantity</th>
           </tr>
 
-          {supplyList}
+          {/* {supplyList} */}
         </tbody>
       </table>
     </div>
   );
 }
 
-export default Supply;
+export default OrderList;

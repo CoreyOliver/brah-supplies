@@ -73,4 +73,13 @@ module.exports = {
       res.json(error)
     }
   },
+  getSuppliesForOrder: async ( req , res ) => {
+    try {
+      const data = await SupplyItem.find();
+      res.json(data);
+      console.log(data, "get Supplies");
+    } catch (error) {
+      console.log(error)
+    }
+  }
 };

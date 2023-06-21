@@ -56,9 +56,9 @@ const EditSupply = () => {
 
 
 
-  // useEffect(() => {
-  //   console.log(editFormData);
-  // }, [editFormData]);
+  useEffect(() => {
+    console.log(editFormData);
+  }, [editFormData]);
 
   return (
     <div className="pt-40 flex justify-around items-center m-auto">

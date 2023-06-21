@@ -28,3 +28,10 @@ was able to work out loader and map function properly. used improper brackets...
 //6-20
 added edit function 
 cannot redirect to root route, user will need to manually update
+
+
+//6-21
+updated editsupplyaction
+    removed json method to data already formatted json
+added orderlist component
+need to aggregate to add to orders

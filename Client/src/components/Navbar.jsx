@@ -21,10 +21,10 @@ const Navbar = () => {
               <NavLink to={"add"}>Add Supply</NavLink>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
-              Order History
+              <NavLink to={"order"}>Draft Order</NavLink>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
-              Draft Order
+              Order History
             </li>
           </ul>
           <div onClick={handleNav} className="flex md:hidden">
