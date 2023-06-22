@@ -11,8 +11,7 @@ export async function action({ request }) {
         body: JSON.stringify(supplies)
     })
 
-    const data = await response
     
-    return { data }
+    return { response }
 }
 

@@ -29,7 +29,11 @@ const SupplySchema = new mongoose.Schema({
   },
   added: {
     type: Date,
-  }
+  },
+  minLevel: {
+    type: Number,
+    required: true
+  },
 
 })
 

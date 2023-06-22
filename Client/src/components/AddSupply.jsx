@@ -10,6 +10,7 @@ const AddSupply = () => {
     type: "",
     unitCount: 0,
     active: true,
+    minLevel: 0
   });
 
   const handleChange = (e) => {
@@ -20,14 +21,14 @@ const AddSupply = () => {
       };
     });
   };
-  const handleToggle = (e) => {
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        active: !formData.active,
-      };
-    });
-  };
+  // const handleToggle = (e) => {
+  //   setFormData((prevState) => {
+  //     return {
+  //       ...prevState,
+  //       active: !formData.active,
+  //     };
+  //   });
+  // };
   const handleSubmit = () => {
     clearForm()
     // navigate(-1)
@@ -41,10 +42,10 @@ const AddSupply = () => {
 
   // const navigate = useNavigate()
 
-  //use to see form updates
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
+  // use to see form updates
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return (
     <div className="pt-40 flex justify-around items-center m-auto">
@@ -116,6 +117,17 @@ const AddSupply = () => {
           />
         </label>
         <label className="p-8">
+          <span className="p-4 text-left w-[90%]">Min Level</span>
+          <input
+            type="number"
+            name="minLevel"
+            placeholder="Minimum Level"
+            className="text-center rounded-md shadow-xl shadow-gray-300"
+            value={formData.minLevel || ""}
+            onChange={(e) => handleChange(e)}
+          />
+        </label>
+        {/* <label className="p-8">
           <span className="p-4 text-left w-[90%]">Active</span>
           <input
             name="active"
@@ -126,7 +138,7 @@ const AddSupply = () => {
             value={formData.active}
             onChange={(e) => handleToggle(e)}
           />
-        </label>
+        </label> */}
         <div className="p-8 flex justify-around flex-col">
           <button className="m-4 p-4 bg-slate-400 rounded-xl w-full hover:scale-110 hover:ease-in ">
             Submit

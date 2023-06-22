@@ -11,6 +11,10 @@ To do
 [] access to update pricing and vendor for supplies but also keep historic data
 [] update onSubmit to reroute to root
 [] remove negative
+[x] add color for low quantities
+[x] add bottom level for supplies quantities needed
+
+
 
 changelogs
 //6-15
@@ -35,3 +39,8 @@ updated editsupplyaction
     removed json method to data already formatted json
 added orderlist component
 need to aggregate to add to orders
+
+//6-22
+added color for less than 3
+created min levels property. 
+    leveraged for coloring to call out low stock. Automatic formatting based on minlevel v qty

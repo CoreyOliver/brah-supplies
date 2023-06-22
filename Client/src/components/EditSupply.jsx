@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Form, useLoaderData, useNavigate } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 
 export async function loader({ params }) {
   const res = await fetch(`http://localhost:3000/edit/${params.id}`);
@@ -10,7 +10,6 @@ export async function loader({ params }) {
 
 const EditSupply = () => {
   const singleSupply = useLoaderData();
-  const navigate = useNavigate()
   // console.log(singleSupply);
 
   const [editFormData, setEditFormData] = useState({
@@ -22,6 +21,7 @@ const EditSupply = () => {
     unitCount: singleSupply.unitCount,
     quantity: singleSupply.quantity,
     active: singleSupply.active,
+    minLevel: singleSupply.minLevel
   });
 
   const handleChange = (e) => {
@@ -137,6 +137,17 @@ const EditSupply = () => {
             placeholder="Units/container"
             className="text-center rounded-md shadow-xl shadow-gray-300"
             value={editFormData.unitCount || ""}
+            onChange={(e) => handleChange(e)}
+          />
+        </label>
+        <label className="p-8">
+          <span className="p-4 text-left w-[90%]">Units/container</span>
+          <input
+            type="number"
+            name="minLevel"
+            placeholder="Minimum Level"
+            className="text-center rounded-md shadow-xl shadow-gray-300"
+            value={editFormData.minLevel}
             onChange={(e) => handleChange(e)}
           />
         </label>

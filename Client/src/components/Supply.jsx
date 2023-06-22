@@ -26,9 +26,9 @@ export function Supply() {
       console.log(error);
     }
   };
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   const handleClickUp = (id) => {
     let newCount;
@@ -66,12 +66,13 @@ export function Supply() {
       SKU={supply.SKU}
       vendor={supply.vendor}
       quantity={supply.quantity}
-      active={supply.active}
       type={supply.type}
+      unitCount={supply.unitCount}
       price={supply.price}
+      id={supply._id}
+      minLevel={supply.minLevel}
       handleClickUp={handleClickUp}
       handleClickDown={handleClickDown}
-      id={supply._id}
     />
   ));
 
@@ -86,15 +87,15 @@ export function Supply() {
             <th scope="col" className="hidden sm:table-cell">
               Vendor
             </th>
-            <th scope="col" className="hidden md:table-cell">
+            {/* <th scope="col" className="hidden md:table-cell">
               Price/EA
-            </th>
+            </th> */}
             <th scope="col" className="hidden sm:table-cell">
               Price/container
             </th>
-            <th scope="col" className="hidden md:table-cell">
-              Active
-            </th>
+            {/* <th scope="col" className="hidden md:table-cell">
+              level
+            </th> */}
             <th scope="col">Quantity</th>
           </tr>
 

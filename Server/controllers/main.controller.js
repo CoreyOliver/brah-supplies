@@ -65,10 +65,11 @@ module.exports = {
           unitCount: req.body.unitCount,
           quantity: req.body.quantity,
           active: req.body.active,
+          minLevel: req.body.minLevel
 
         });
       // console.log(supToUp, req.body);
-      res.json(res.body);
+      res.json('res.body');
     } catch (error) {
       res.json(error)
     }
