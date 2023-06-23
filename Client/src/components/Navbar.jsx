@@ -61,16 +61,13 @@ const Navbar = () => {
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
               <li onClick={() => setNav(false)} className="py-4 text-sm">
-                Supply List
+              <NavLink to={"/"}>Supply List</NavLink>
               </li>
               <li onClick={() => setNav(false)} className="py-4 text-sm">
-                Add Supply
+              <NavLink to={"add"}>Add Supply</NavLink>
               </li>
               <li onClick={() => setNav(false)} className="py-4 text-sm">
-                Edit Supply
-              </li>
-              <li onClick={() => setNav(false)} className="py-4 text-sm">
-                Order History
+              <NavLink to={"order"}>Draft Order</NavLink>
               </li>
               <li onClick={() => setNav(false)} className="py-4 text-sm">
                 Draft Order

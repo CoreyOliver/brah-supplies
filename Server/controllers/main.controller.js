@@ -3,9 +3,13 @@ const SupplyItem = require("../models/SupplyItem.model");
 module.exports = {
   getSupplies: async (req, res) => {
     try {
-      const data = await SupplyItem.find();
-      res.json(data);
-      console.log(data, "get Supplies");
+      // const data = await SupplyItem.find();
+      // res.json(data);
+      // console.log(data, "get Supplies");
+      const dataAgg = await SupplyItem.aggregate().sort({
+        SKU: 'asc'
+      })
+      res.json(dataAgg)
     } catch (err) {
       console.log(err);
     }
@@ -22,6 +26,7 @@ module.exports = {
         price: req.body.price,
         type: req.body.type,
         added: Date.now(),
+        minLevel: req.body.minLevel
       });
       res.json("Supply has been added!");
     } catch (err) {
@@ -37,7 +42,7 @@ module.exports = {
         { quantity: req.params.newCount },
         { new: true }
       );
-      console.log(supToUp);
+      // console.log(supToUp);
       res.json("Updated!");
     } catch (error) {
       console.log(error);

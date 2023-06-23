@@ -3,6 +3,8 @@
 To do
 
 [x] list supplies by vendor
+[x] filter supplies by vendor
+[] sort supplies data
 [] access cost and vendor information by access db (mongo)
 [] process order request 
     [] place request using app to generate email to correct vendor
@@ -44,3 +46,9 @@ need to aggregate to add to orders
 added color for less than 3
 created min levels property. 
     leveraged for coloring to call out low stock. Automatic formatting based on minlevel v qty
+
+//6-23
+added buttons to sort the supply list
+styling for buttons
+added minlevel to match model requirements in addsupplyaction 
+add line for adding quantity to order
