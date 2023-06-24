@@ -44,7 +44,7 @@ const SupplyLine = ({
         </td>
         <td className="">
           <span className="flex justify-between">
-            <input type="number" className="w-10 mx-2 rounded-md" defaultValue={0} />
+            <input type="number" className="w-10 mx-2 rounded-md text-center" defaultValue={0} />
             <GrCart className="mx-2 cursor-pointer" />
           </span>
         </td>

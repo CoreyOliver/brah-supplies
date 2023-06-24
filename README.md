@@ -52,3 +52,6 @@ added buttons to sort the supply list
 styling for buttons
 added minlevel to match model requirements in addsupplyaction 
 add line for adding quantity to order
+
+//6-24
+clean up commented out code. retesting to check for errors
