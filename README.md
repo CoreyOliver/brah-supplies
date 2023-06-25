@@ -4,7 +4,7 @@ To do
 
 [x] list supplies by vendor
 [x] filter supplies by vendor
-[] sort supplies data
+[x] sort supplies data
 [] access cost and vendor information by access db (mongo)
 [] process order request 
     [] place request using app to generate email to correct vendor
@@ -55,3 +55,10 @@ add line for adding quantity to order
 
 //6-24
 clean up commented out code. retesting to check for errors
+
+//6-25
+refactor sort
+    supplies list will omit all vendors outside of selection
+    (?) similar sort to orders catalog
+
+//6-25
