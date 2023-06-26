@@ -15,6 +15,8 @@ To do
 [] remove negative
 [x] add color for low quantities
 [x] add bottom level for supplies quantities needed
+[] split loaded data for orders
+    [] map through to get items for each vendor dynamically as more or fewer vendors have items requesting to be ordered
 
 
 
@@ -62,3 +64,5 @@ refactor sort
     (?) similar sort to orders catalog
 
 //6-25
+init order table and list.
+pulled data from db for items with order quantity

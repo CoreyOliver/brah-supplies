@@ -21,7 +21,8 @@ const EditSupply = () => {
     unitCount: singleSupply.unitCount,
     quantity: singleSupply.quantity,
     active: singleSupply.active,
-    minLevel: singleSupply.minLevel
+    minLevel: singleSupply.minLevel,
+    orderQty: singleSupply.orderQty
   });
 
   const handleChange = (e) => {
@@ -162,6 +163,17 @@ const EditSupply = () => {
             onChange={(e) => handleChange(e)}
           />
         </label>
+        {/* <label className="p-8">
+          <span className="p-4 text-left w-[90%]">order</span>
+          <input
+            type="number"
+            name="orderQty"
+            placeholder="order quantity"
+            className="text-center rounded-md shadow-xl shadow-gray-300"
+            value={editFormData.orderQty}
+            onChange={(e) => handleChange(e)}
+          />
+        </label> */}
         <label className="p-8">
           <span className="p-4 text-left w-[90%]">Active</span>
           <input

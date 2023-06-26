@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Form, useNavigate } from "react-router-dom";
+import { Form } from "react-router-dom";
 
 
 const AddSupply = () => {
@@ -31,7 +31,6 @@ const AddSupply = () => {
   // };
   const handleSubmit = () => {
     clearForm()
-    // navigate(-1)
   }
 
   const clearForm = () => {
@@ -40,7 +39,6 @@ const AddSupply = () => {
     });
   };
 
-  // const navigate = useNavigate()
 
   // use to see form updates
   useEffect(() => {

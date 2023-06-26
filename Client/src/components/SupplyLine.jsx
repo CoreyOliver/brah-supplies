@@ -1,18 +1,23 @@
-import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { GrAdd, GrSubtract, GrEdit, GrCart } from "react-icons/gr";
+import {
+  GrAdd,
+  GrSubtract,
+  GrEdit,
+  GrCart,
+  GrCheckboxSelected,
+  GrCheckbox,
+} from "react-icons/gr";
 
 const SupplyLine = ({
   SKU,
   vendor,
   quantity,
   type,
-  price,
   handleClickUp,
   handleClickDown,
   id,
   minLevel,
-  unitCount,
+  orderQty,
 }) => {
   return (
     <>
@@ -43,9 +48,9 @@ const SupplyLine = ({
           </span>
         </td>
         <td className="">
-          <span className="flex justify-between">
-            <input type="number" className="w-10 mx-2 rounded-md text-center" defaultValue={0} />
-            <GrCart className="mx-2 cursor-pointer" />
+          <span className="flex justify-around"> 
+          { orderQty > 0 ? <GrCheckboxSelected className="mx-2" /> :  <GrCheckbox className="mx-2"size={15} /> }
+            <GrCart className="mx-2 cursor-pointer" /> 
           </span>
         </td>
       </tr>

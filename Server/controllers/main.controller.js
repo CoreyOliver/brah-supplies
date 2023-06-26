@@ -26,7 +26,8 @@ module.exports = {
         price: req.body.price,
         type: req.body.type,
         added: Date.now(),
-        minLevel: req.body.minLevel
+        minLevel: req.body.minLevel,
+        ordQty: 0
       });
       res.json("Supply has been added!");
     } catch (err) {
@@ -81,7 +82,13 @@ module.exports = {
   },
   getSuppliesForOrder: async ( req , res ) => {
     try {
-      const data = await SupplyItem.find();
+      const data = await SupplyItem.aggregate([
+        {
+          $match : {
+            orderQty: {$not: { $eq: 0 }}
+          }
+        }
+      ])
       res.json(data);
       console.log(data, "get Supplies");
     } catch (error) {

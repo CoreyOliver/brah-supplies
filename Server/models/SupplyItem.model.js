@@ -34,6 +34,9 @@ const SupplySchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  ordQty: {
+    type: Number,
+  }
 
 })
 

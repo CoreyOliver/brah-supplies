@@ -28,6 +28,7 @@ export function Supply() {
   };
   useEffect(() => {
     console.log(data);
+    // console.log(data.map(e=> e.orderQty))
   }, [data]);
 
   const handleClickUp = (id) => {
@@ -82,6 +83,7 @@ export function Supply() {
       minLevel={supply.minLevel}
       handleClickUp={handleClickUp}
       handleClickDown={handleClickDown}
+      orderQty={supply.orderQty}
     />
   ));
 
