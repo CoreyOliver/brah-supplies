@@ -21,7 +21,7 @@ const SupplyLine = ({
 }) => {
   return (
     <>
-      <tr className="">
+      <tr className="hover:scale-110">
         <th scope="row"></th>
         <td className="hidden md:table-cell">
           <NavLink to={`edit/${id}`} className="flex justify-center">

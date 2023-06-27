@@ -11,5 +11,6 @@ router.post('/add', mainController.addSupply)
 
 router.put('/count/:id/:newCount', mainController.changeCount)
 router.put('/editSupply/:id', mainController.editSupply)
+router.put('/order/:id/:newCount', mainController.changeOrderCount)
 
 module.exports = router

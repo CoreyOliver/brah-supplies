@@ -16,7 +16,9 @@ To do
 [x] add color for low quantities
 [x] add bottom level for supplies quantities needed
 [] split loaded data for orders
-    [] map through to get items for each vendor dynamically as more or fewer vendors have items requesting to be ordered
+    [x] map through to get items for each vendor dynamically as more or fewer vendors have items requesting to be ordered
+[x] handle click up for order
+[] handle click down for order
 
 
 
@@ -66,3 +68,10 @@ refactor sort
 //6-25
 init order table and list.
 pulled data from db for items with order quantity
+
+//6-26
+added order tables  
+    mapped through vendors
+    separated SKUs by vendor table
+    added function for handle up
+        server side db handler

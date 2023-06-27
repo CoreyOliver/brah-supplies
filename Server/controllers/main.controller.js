@@ -87,12 +87,28 @@ module.exports = {
           $match : {
             orderQty: {$not: { $eq: 0 }}
           }
-        }
+        },
+        {$sort : ({
+          vendor: 1
+        })}
       ])
       res.json(data);
       console.log(data, "get Supplies");
     } catch (error) {
       console.log(error)
     }
+  },
+  changeOrderCount: async (req, res) => {
+    try {
+    const supToUp = await SupplyItem.findOneAndUpdate(
+      { _id: req.params.id },
+      { orderQty: req.params.newCount },
+      { new: true }
+    );
+    // console.log(supToUp);
+    res.json("Updated!");
+  } catch (error) {
+    console.log(error);
+  }
   }
 };
