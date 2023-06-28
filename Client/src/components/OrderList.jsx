@@ -13,6 +13,7 @@ export async function loader() {
 
 export function OrderList() {
   const orderItems = useLoaderData();
+
   const vendorList = orderItems
     .map((orderLine) => orderLine.vendor)
     .filter((e, i, arr) => arr.indexOf(e) === i);
@@ -42,33 +43,33 @@ export function OrderList() {
   
   const handleClickUp = (id) => {
     let newCount;
-    const newState = orderData.map((supply) => {
-      if (supply._id === id) {
-        const newQty = supply.orderQty + 1;
+    const newState = orderData.map((order) => {
+      if (order._id === id) {
+        const newQty = order.ordQty + 1;
         newCount = newQty;
-        return { ...supply, orderQty: newQty };
+        return { ...order, ordQty: newQty };
       }
-      return supply;
+      return order;
     });
 
     addOrderQty(id, newCount);
     setOrderData(newState);
   };
   
-  // const handleClickDown = (id) => {
-  //   let newCount;
-  //   const newState = data.map((supply) => {
-  //     if (supply._id === id) {
-    //       const newQty = supply.quantity - 1;
-  //       newCount = newQty;
-  //       return { ...supply, quantity: newQty };
-  //     }
-  //     return supply;
-  //   });
+  const handleClickDown = (id) => {
+    let newCount;
+    const newState = orderData.map((order) => {
+      if (order._id === id) {
+          const newQty = order.ordQty - 1;
+        newCount = newQty;
+        return { ...order, ordQty: newQty };
+      }
+      return order;
+    });
 
-  //   setData(newState);
-  //   addQty(id, newCount);
-  // };
+    setOrderData(newState);
+    addOrderQty(id, newCount);
+  };
   
   const vendorTables = vendorList.map((vendor, i) => (
     <OrderTable 
@@ -76,6 +77,7 @@ export function OrderList() {
       vendorName={vendor} 
       data={orderData.filter(orderLine => orderLine.vendor === vendor)}
       handleClickUp={handleClickUp}
+      handleClickDown={handleClickDown}
       />
   ));
 

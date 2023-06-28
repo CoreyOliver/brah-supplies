@@ -75,3 +75,7 @@ added order tables
     separated SKUs by vendor table
     added function for handle up
         server side db handler
+//6-27
+    updated order tables
+    add qty for order items works
+    send down prop for click handle

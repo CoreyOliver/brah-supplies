@@ -1,6 +1,6 @@
 import { GrSubtract, GrAdd } from 'react-icons/gr'
 
-const OrderTable = ({ SKU, orderQty, id, handleClickUp }) => {
+const OrderTable = ({ SKU, orderQty, id, handleClickUp, handleClickDown }) => {
   return (
     <>
       <tr className="">

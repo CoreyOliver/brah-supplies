@@ -3,13 +3,10 @@ const SupplyItem = require("../models/SupplyItem.model");
 module.exports = {
   getSupplies: async (req, res) => {
     try {
-      // const data = await SupplyItem.find();
-      // res.json(data);
-      // console.log(data, "get Supplies");
       const dataAgg = await SupplyItem.aggregate().sort({
-        SKU: 'asc'
-      })
-      res.json(dataAgg)
+        SKU: "asc",
+      });
+      res.json(dataAgg);
     } catch (err) {
       console.log(err);
     }
@@ -27,7 +24,7 @@ module.exports = {
         type: req.body.type,
         added: Date.now(),
         minLevel: req.body.minLevel,
-        ordQty: 0
+        ordQty: 0,
       });
       res.json("Supply has been added!");
     } catch (err) {
@@ -40,10 +37,10 @@ module.exports = {
     try {
       const supToUp = await SupplyItem.findOneAndUpdate(
         { _id: req.params.id },
-        { quantity: req.params.newCount },
+        { quantity: Number(req.params.newCount) },
         { new: true }
       );
-      // console.log(supToUp);
+      console.log(req.params, supToUp);
       res.json("Updated!");
     } catch (error) {
       console.log(error);
@@ -54,7 +51,6 @@ module.exports = {
     try {
       const supplyToEdit = await SupplyItem.findById(req.params.id);
       res.json(supplyToEdit);
-      // console.log("requested and received");
     } catch (error) {
       console.log(error);
     }
@@ -62,53 +58,73 @@ module.exports = {
 
   editSupply: async (req, res) => {
     try {
-      const supToUp = await SupplyItem.findByIdAndUpdate(req.params.id, 
-        {
-          SKU: req.body.SKU,
-          vendor: req.body.vendor,
-          price: req.body.price,
-          type: req.body.type,
-          unitCount: req.body.unitCount,
-          quantity: req.body.quantity,
-          active: req.body.active,
-          minLevel: req.body.minLevel
-
-        });
-      // console.log(supToUp, req.body);
-      res.json('res.body');
+      const supToUp = await SupplyItem.findByIdAndUpdate(req.params.id, {
+        SKU: req.body.SKU,
+        vendor: req.body.vendor,
+        price: req.body.price,
+        type: req.body.type,
+        unitCount: req.body.unitCount,
+        quantity: req.body.quantity,
+        active: req.body.active,
+        minLevel: req.body.minLevel,
+      });
+      res.json("res.body");
     } catch (error) {
-      res.json(error)
+      res.json(error);
     }
   },
-  getSuppliesForOrder: async ( req , res ) => {
+  getSuppliesForOrder: async (req, res) => {
     try {
       const data = await SupplyItem.aggregate([
         {
-          $match : {
-            orderQty: {$not: { $eq: 0 }}
-          }
+          $match: {
+            ordQty: { $not: { $eq: 0 } },
+          },
         },
-        {$sort : ({
-          vendor: 1
-        })}
-      ])
+        {
+          $sort: {
+            vendor: 1,
+          },
+        },
+      ]);
       res.json(data);
-      console.log(data, "get Supplies");
+      // console.log(data, "get Supplies");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   changeOrderCount: async (req, res) => {
     try {
-    const supToUp = await SupplyItem.findOneAndUpdate(
-      { _id: req.params.id },
-      { orderQty: req.params.newCount },
-      { new: true }
-    );
-    // console.log(supToUp);
-    res.json("Updated!");
-  } catch (error) {
-    console.log(error);
-  }
-  }
+      const supToUp = await SupplyItem.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          ordQty: Number(req.params.newCount),
+        },
+        { new: true }
+      );
+      console.log(req.params, supToUp);
+      res.json("Updated!");
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  addToOrderList: async (req, res) => {
+    try {
+      console.log(req.params.id);
+      const itemToAdd = await SupplyItem.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: {
+            ordQty: 1,
+          },
+        },
+        {
+          new: true,
+        }
+      );
+      res.json(itemToAdd);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };

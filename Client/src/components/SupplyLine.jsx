@@ -17,7 +17,8 @@ const SupplyLine = ({
   handleClickDown,
   id,
   minLevel,
-  orderQty,
+  ordQty,
+  addToOrderList,
 }) => {
   return (
     <>
@@ -48,9 +49,15 @@ const SupplyLine = ({
           </span>
         </td>
         <td className="">
-          <span className="flex justify-around"> 
-          { orderQty > 0 ? <GrCheckboxSelected className="mx-2" /> :  <GrCheckbox className="mx-2"size={15} /> }
-            <GrCart className="mx-2 cursor-pointer" /> 
+          <span className="flex justify-around">
+            {ordQty > 0 ? (
+              <GrCheckboxSelected className="mx-2" />
+            ) : (
+              <GrCart
+                className="mx-2 cursor-pointer hover:scale-150"
+                onClick={() => addToOrderList(id)}
+              />
+            )}
           </span>
         </td>
       </tr>

@@ -12,6 +12,7 @@ export function Supply() {
   const supplies = useLoaderData();
   const [data, setData] = useState(supplies);
 
+  // increase count for stock
   const addQty = async (id, newQty) => {
     try {
       const res = await fetch(`http://localhost:3000/count/${id}/${newQty}`, {
@@ -26,11 +27,15 @@ export function Supply() {
       console.log(error);
     }
   };
+
+  //tracking for debuggin
   useEffect(() => {
     console.log(data);
     // console.log(data.map(e=> e.orderQty))
   }, [data]);
 
+
+//calls for increase and decrease qty
   const handleClickUp = (id) => {
     let newCount;
     const newState = data.map((supply) => {
@@ -60,7 +65,7 @@ export function Supply() {
     setData(newState);
     addQty(id, newCount);
   };
-
+  //filter tables to show goods for specific vendor
   const filterClick = (id) => {
     const filteredState = data.map(supply => supply).filter(supply => supply.vendor === id)
     setData(filteredState)
@@ -68,6 +73,22 @@ export function Supply() {
 
   const unfilterClick = () => {
     setData(supplies)
+  }
+
+  //add to order
+  const addToOrderList = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:3000/orderadd/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const supplyList = data.map((supply) => (
@@ -81,9 +102,10 @@ export function Supply() {
       price={supply.price}
       id={supply._id}
       minLevel={supply.minLevel}
+      ordQty={supply.ordQty}
       handleClickUp={handleClickUp}
       handleClickDown={handleClickDown}
-      orderQty={supply.orderQty}
+      addToOrderList={addToOrderList}
     />
   ));
 
