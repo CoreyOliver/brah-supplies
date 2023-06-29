@@ -12,14 +12,16 @@ To do
 [] historical data to watch supply flow
 [] access to update pricing and vendor for supplies but also keep historic data
 [] update onSubmit to reroute to root
-[] remove negative
+[x] remove negative
 [x] add color for low quantities
 [x] add bottom level for supplies quantities needed
-[] split loaded data for orders
+[x] split loaded data for orders
     [x] map through to get items for each vendor dynamically as more or fewer vendors have items requesting to be ordered
 [x] handle click up for order
-[] handle click down for order
-
+[x] handle click down for order
+[] update vendor order list to show selected vendor
+    []add filter
+    [] add print function
 
 
 changelogs
@@ -79,3 +81,8 @@ added order tables
     updated order tables
     add qty for order items works
     send down prop for click handle
+
+//6-28
+    added conditional for no negative quantities
+    update button to add order items to 'print page'
+    created vendor order list

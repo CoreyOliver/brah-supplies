@@ -12,6 +12,8 @@ import EditSupply from "./components/EditSupply.jsx";
 import  {loader as getOneSupply}  from "./components/EditSupply.jsx"
 import { OrderList } from "./components/OrderList.jsx"
 import { loader as getOrderData } from "./components/OrderList.jsx"
+import { VendorOrderList } from "./components/VendorOrderList.jsx"
+import { loader as getVendorOrderData} from "./components/VendorOrderList.jsx"
 
 //styling
 import "./index.css";
@@ -46,6 +48,11 @@ const router = createBrowserRouter([
         path: "order",
         loader: getOrderData,
         element: <OrderList />
+      },
+      {
+        path: "vendorOrder/:vendorName",
+        loader: getVendorOrderData,
+        element: <VendorOrderList />
       }
     ],
   },

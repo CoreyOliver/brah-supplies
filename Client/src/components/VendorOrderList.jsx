@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 import OrderTable from "./OrderTable";
 
 export async function loader() {
-  const res = await fetch("http://localhost:3000/orders");
+  const res = await fetch("http://localhost:3000/vendor/orders");
   const itemsToOrder = await res.json();
   return itemsToOrder;
 }
 
-export function OrderList() {
+export function VendorOrderList() {
   const orderItems = useLoaderData();
 
   const vendorList = orderItems
@@ -89,4 +89,4 @@ export function OrderList() {
   );
 }
 
-export default OrderList;
+export default VendorOrderList;

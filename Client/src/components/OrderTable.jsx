@@ -1,7 +1,8 @@
 import OrderTableData from "./OrderTableData";
-
-
+import { useNavigate } from "react-router-dom";
 const OrderTable = ({ vendorName, data, handleClickUp, handleClickDown }) => {
+  const navigate = useNavigate()
+
   const orderLineByVendor = data.map((orderItem) => (
     <OrderTableData
       key={orderItem._id}
@@ -9,14 +10,22 @@ const OrderTable = ({ vendorName, data, handleClickUp, handleClickDown }) => {
       SKU={orderItem.SKU}
       orderQty={orderItem.ordQty}
       vendor={orderItem.vendor}
+      type={orderItem.type}
       handleClickUp={handleClickUp}
       handleClickDown={handleClickDown}
     />
   ));
 
+  const checkItOut = (vendor) => {
+    navigate(`/vendorOrder/${vendor}`)
+  }
+
   return (
     <div className="text-center py-4 my-4 bg-slate-400 border-solid shadow-2xl shadow-slate-900 hover:scale-105 rounded-xl">
-      <h1 className="underline text-black">{vendorName}</h1>
+      <div className="flex items-center justify-evenly">
+        <h1 className="underline text-black">{vendorName}</h1>
+        <button className="rounded-md p-2 hover:scale-125" name={vendorName} onClick={(e) => checkItOut(e.target.name)}>Submit</button>
+      </div>
       <table className="table mx-4 mt-4 pb-8">
         <tbody>
           <tr className="">

@@ -127,4 +127,23 @@ module.exports = {
       console.log(error);
     }
   },
+  getOrderByVendor: async (req, res) => {
+    try {
+      const data = await SupplyItem.aggregate([
+        {
+          $match: {
+            ordQty: { $not: { $eq: 0 } },
+          },
+        },
+        {
+          $sort: {
+            vendor: 1,
+          },
+        },
+      ]);
+      res.json(data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 };
