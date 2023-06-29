@@ -67,22 +67,23 @@ refactor sort
     supplies list will omit all vendors outside of selection
     (?) similar sort to orders catalog
 
-//6-25
+//6-26
 init order table and list.
 pulled data from db for items with order quantity
 
-//6-26
+//6-27
 added order tables  
     mapped through vendors
     separated SKUs by vendor table
     added function for handle up
         server side db handler
-//6-27
+//6-28
     updated order tables
     add qty for order items works
     send down prop for click handle
 
-//6-28
+//6-29
     added conditional for no negative quantities
     update button to add order items to 'print page'
     created vendor order list
+    adjust changelog dates to match reality
