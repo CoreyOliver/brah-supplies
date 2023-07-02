@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 
 import OrderTable from "./OrderTable";
 
-export async function loader() {
-  const res = await fetch("http://localhost:3000/vendor/orders");
+export async function loader({params}) {
+  const res = await fetch(`http://localhost:3000/vendor/orders/${params.vendorName}`);
   const itemsToOrder = await res.json();
   return itemsToOrder;
 }

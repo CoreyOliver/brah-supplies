@@ -132,6 +132,7 @@ module.exports = {
       const data = await SupplyItem.aggregate([
         {
           $match: {
+            vendor: req.params.vendorName,
             ordQty: { $not: { $eq: 0 } },
           },
         },
@@ -141,6 +142,7 @@ module.exports = {
           },
         },
       ]);
+      console.log(req.params.vendorName)
       res.json(data);
     } catch (error) {
       console.log(error)
