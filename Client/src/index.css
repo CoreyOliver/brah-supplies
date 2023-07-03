@@ -34,6 +34,12 @@
     td {
       @apply border-solid text-center bg-slate-300 border-2 py-4
     }
-  
+
+    @media print {
+      .no_print {
+        display: none
+      }
+    }
+          
   
   }

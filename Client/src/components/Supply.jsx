@@ -29,10 +29,10 @@ export function Supply() {
   };
 
   //tracking for debuggin
-  useEffect(() => {
-    console.log(data);
-    // console.log(data.map(e=> e.orderQty))
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  //   // console.log(data.map(e=> e.orderQty))
+  // }, [data]);
 
 
 //calls for increase and decrease qty

@@ -41,9 +41,9 @@ const AddSupply = () => {
 
 
   // use to see form updates
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
 
   return (
     <div className="pt-40 flex justify-around items-center m-auto">

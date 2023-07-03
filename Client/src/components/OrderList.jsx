@@ -22,9 +22,9 @@ export function OrderList() {
 
 
   
-  useEffect(() => {
-    console.log(orderData);
-  }, [orderData]);
+  // useEffect(() => {
+  //   console.log(orderData);
+  // }, [orderData]);
   
   const addOrderQty = async (id, newQty) => {
     try {
@@ -35,7 +35,7 @@ export function OrderList() {
         },
       });
       const data = await res.json()
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.log(error);
     }
@@ -78,6 +78,7 @@ export function OrderList() {
       data={orderData.filter(orderLine => orderLine.vendor === vendor)}
       handleClickUp={handleClickUp}
       handleClickDown={handleClickDown}
+      buttonText={`Order Here`}
       />
   ));
 

@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed w-full h-20 shadow-xl z-[100]">
+    <div className="fixed w-full h-20 shadow-xl z-[100] no_print">
       <div className="flex justify-evenly items-center w-full h-full ">
         <div>
           <ul className="hidden md:flex">

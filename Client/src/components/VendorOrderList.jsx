@@ -78,12 +78,18 @@ export function VendorOrderList() {
       data={orderData.filter(orderLine => orderLine.vendor === vendor)}
       handleClickUp={handleClickUp}
       handleClickDown={handleClickDown}
+      buttonText={'Submit'}
       />
   ));
 
 
   return (
     <div className="pt-20 flex flex-col justify-center items-center">
+      <div>
+        <button className="p-4 m-8 rounded-lg shadow-xl shadow-slate-600 no_print"
+        onClick={()=>window.print()}>Print</button>
+
+      </div>
       {vendorTables}
     </div>
   );
