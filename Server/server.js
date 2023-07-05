@@ -10,7 +10,7 @@ const logger = require("morgan");
 //middleware init
 
 require("dotenv").config({ path: "./config/.env" });
-app.use(express.static(path.join(__dirname,"Client","dist")));
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
