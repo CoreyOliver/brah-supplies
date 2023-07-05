@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mainController = require('../controllers/main.controller')
 
-router.get('/', mainController.getRoot)
+// router.get('/', mainController.getRoot)
 router.get('/getSupplies', mainController.getSupplies)
 router.get('/edit/:id', mainController.getOneSupply)
 router.get('/orders', mainController.getSuppliesForOrder)
