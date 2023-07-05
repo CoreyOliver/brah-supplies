@@ -5,7 +5,7 @@ const path = require('path')
 
 // router.get('/', mainController.getRoot)
 router.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "../Client/dist/index.html"))
+  res.sendFile(path.join(__dirname, "../../Client/dist/index.html"))
 );
 router.get("/getSupplies", mainController.getSupplies);
 router.get("/edit/:id", mainController.getOneSupply);
