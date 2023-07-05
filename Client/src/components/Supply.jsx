@@ -3,7 +3,7 @@ import SupplyLine from "./SupplyLine";
 import { useState, useEffect } from "react";
 
 export async function loader() {
-  const res = await fetch("http://localhost:3000");
+  const res = await fetch("https://brah-supplies.onrender.com/");
   const supplies = await res.json();
   return supplies;
 }
@@ -15,7 +15,7 @@ export function Supply() {
   // increase count for stock
   const addQty = async (id, newQty) => {
     try {
-      const res = await fetch(`http://localhost:3000/count/${id}/${newQty}`, {
+      const res = await fetch(`https://brah-supplies.onrender.com/count/${id}/${newQty}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export function Supply() {
   //add to order
   const addToOrderList = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/orderadd/${id}`, {
+      const res = await fetch(`https://brah-supplies.onrender.com/orderadd/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
