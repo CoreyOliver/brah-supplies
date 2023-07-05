@@ -18,7 +18,7 @@ app.use(cors());
 
 app.get("/", (req, res) =>
 
-  res.sendFile(path.resolve("index.html"))
+  res.sendFile(path.resolve(__dirname, "../Client/dist/index.html"))
 );
 
 //file connect
