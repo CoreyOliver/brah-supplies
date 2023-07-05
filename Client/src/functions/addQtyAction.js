@@ -1,6 +1,6 @@
 export async function action(id, newQty) {
     try {
-      const res = await fetch(`http://localhost:3000/count/${id}/${newQty}`, {
+      const res = await fetch(`https://brah-supplies.onrender.com/count/${id}/${newQty}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

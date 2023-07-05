@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Form, useLoaderData } from "react-router-dom";
 
 export async function loader({ params }) {
-  const res = await fetch(`http://localhost:3000/edit/${params.id}`);
+  const res = await fetch(`https://brah-supplies.onrender.com/edit/${params.id}`);
   const singleSupply = await res.json();
   // console.log(singleSupply)
   return singleSupply;

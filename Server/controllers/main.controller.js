@@ -1,9 +1,10 @@
 const SupplyItem = require("../models/SupplyItem.model");
+const path = require('path')
 
 module.exports = {
   getRoot: async (req, res) => {
     try { 
-      res.render('Client/index.html')
+      res.sendFile(path.join(__dirname, "Client", "index.html"))
     } catch (error) {
       console.log(error)
     }

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import OrderTable from "./OrderTable";
 
 export async function loader() {
-  const res = await fetch("http://localhost:3000/orders");
+  const res = await fetch("https://brah-supplies.onrender.com/orders");
   const itemsToOrder = await res.json();
   return itemsToOrder;
 }
@@ -28,7 +28,7 @@ export function OrderList() {
   
   const addOrderQty = async (id, newQty) => {
     try {
-      const res = await fetch(`http://localhost:3000/order/${id}/${newQty}`, {
+      const res = await fetch(`https://brah-supplies.onrender.com/order/${id}/${newQty}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
