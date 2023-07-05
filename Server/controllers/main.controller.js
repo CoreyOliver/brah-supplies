@@ -1,6 +1,13 @@
 const SupplyItem = require("../models/SupplyItem.model");
 
 module.exports = {
+  getRoot: async (req, res) => {
+    try { 
+      res.render('Client/index.html')
+    } catch (error) {
+      console.log(error)
+    }
+  },
   getSupplies: async (req, res) => {
     try {
       const dataAgg = await SupplyItem.aggregate().sort({
