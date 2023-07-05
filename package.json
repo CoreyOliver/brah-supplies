@@ -4,7 +4,7 @@
   "description": "**PREPRODUCTION VERSION***",
   "main": "index.js",
   "scripts": {
-    "install": "cd Server && npm install && cd ../Client && npm install",
+    "install": "cd Server && npm install && cd ../Client && npm install && npm run build",
     "start": "cd Server && npm run start && cd ../Client && npm run start",
     "install-server": "cd Server && npm install",
     "start-server": "cd Server && node app.js",
