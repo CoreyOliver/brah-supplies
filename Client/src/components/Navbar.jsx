@@ -23,9 +23,7 @@ const Navbar = () => {
             <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
               <NavLink to={"order"}>Draft Order</NavLink>
             </li>
-            <li className="ml-10 text-sm uppercase hover:border-b hover:bg-slate-500">
-              Order History
-            </li>
+
           </ul>
           <div onClick={handleNav} className="flex md:hidden">
             <h1 className="mr-32 ml-16">Supply List</h1>
@@ -68,9 +66,6 @@ const Navbar = () => {
               </li>
               <li onClick={() => setNav(false)} className="py-4 text-sm">
               <NavLink to={"order"}>Draft Order</NavLink>
-              </li>
-              <li onClick={() => setNav(false)} className="py-4 text-sm">
-                Draft Order
               </li>
             </ul>
           </div>
