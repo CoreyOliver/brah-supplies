@@ -16,10 +16,7 @@ app.use(express.json());
 app.use(logger("dev"));
 app.use(cors());
 
-app.get("/", (req, res) =>
 
-  res.sendFile(path.join(__dirname, "../Client/dist/index.html"))
-);
 
 //file connect
 
