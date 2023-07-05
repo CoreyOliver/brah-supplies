@@ -2,13 +2,13 @@ const SupplyItem = require("../models/SupplyItem.model");
 const path = require('path')
 
 module.exports = {
-  getRoot: async (req, res) => {
-    try { 
-      res.sendFile(path.join(__dirname, "../../Client/public", "index.html"))
-    } catch (error) {
-      console.log(error)
-    }
-  },
+  // getRoot: async (req, res) => {
+  //   try { 
+  //     res.sendFile(path.join(__dirname, "../../Client/public", "index.html"))
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // },
   getSupplies: async (req, res) => {
     try {
       const dataAgg = await SupplyItem.aggregate().sort({

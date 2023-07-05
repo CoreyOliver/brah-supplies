@@ -9,7 +9,7 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "https://brah-supplies.onrender.com/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
