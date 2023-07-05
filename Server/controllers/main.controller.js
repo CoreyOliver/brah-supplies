@@ -4,7 +4,7 @@ const path = require('path')
 module.exports = {
   getRoot: async (req, res) => {
     try { 
-      res.sendFile(path.join(__dirname, "../../Client", "index.html"))
+      res.sendFile(path.join(__dirname, "../../Client/public", "index.html"))
     } catch (error) {
       console.log(error)
     }
