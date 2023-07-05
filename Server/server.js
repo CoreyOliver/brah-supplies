@@ -17,7 +17,7 @@ app.use(logger("dev"));
 app.use(cors());
 
 app.get("*", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "../Client", "index.html"))
+  res.sendFile(path.resolve(__dirname, "../Client", "index.html"),{extensions: ["js"]})
 );
 
 //file connect
