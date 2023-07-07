@@ -6,7 +6,8 @@ Project:
     Multiple users are responsible for supply tracking. The team needed a tool to not only track the stock we have but also to coordinate from which vendor individual supply items should be ordered. This tool will allow users to access and update the db on mobile devices and even draft orders from the web app to our vendors. 
 
 What I learned:
-    Using component based pages allows for quick loading and a clean interface. The data is cheap to pull, so in this iteration the code isn't optimized, but over time and at production the fetch and controller functions will need to lean out. Lowest hanging fruit would be more deliberate requests for db data.
+    Using component based pages allows for quick loading and a clean interface. The data is cheap to pull, so in this iteration the code isn't optimized, but over time and at production the fetch and controller functions will need to lean out. Lowest hanging fruit would be more deliberate requests for db data. Setting up models / routes / controllers separately allows for easier optimization. While working with other developers I was able to work on changing Schemas while they worked on CRUD requests, for instance, and that saved headache during the colloboration process. 
+    I also learned that it's exciting/challenging to work with @latest versions considering the implications of small changes. Each step has the potential for relearning the 'loading' or 'page routing' part of a web app. 
 
 
 Tools:
